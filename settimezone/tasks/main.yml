@@ -1,0 +1,4 @@
+---
+- include_tasks: check_configurechronyd.yml
+- include_tasks: settz.yml
+- include_tasks: stopnochrony.yml

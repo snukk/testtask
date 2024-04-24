@@ -1,0 +1,8 @@
+---
+# handlers file for time_conf
+- name: restart chronyd
+  ansible.builtin.service:
+    name: chronyd
+    state: restarted
+  tags:
+    - restart_chronyd

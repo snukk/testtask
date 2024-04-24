@@ -1,0 +1,25 @@
+- name: Check if services exist
+  stat:
+    path: "/etc/systemd/system/{{ item }}.service"
+  register: service_existence
+  loop:
+    - ntp
+    - ntpd
+    - systemd-timedated
+    - timesyncd
+
+- name: chrony+allother- (with sudo, ignore errors, skip if already stopped)
+  become: true
+  ansible.builtin.service:
+    name: "{{ item }}"
+    state: stopped
+    enabled: no
+  loop:
+    - ntp
+    - ntpd
+    - systemd-timedated
+    - timesyncd
+  ignore_errors: yes
+  when: 
+    - item in service_existence.results
+    - service_existence.results[loop.index0].stat.exists
