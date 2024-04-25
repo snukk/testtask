@@ -2,5 +2,3 @@
 - name: Set the timezone
   timezone:
     name: "{{ timezone }}"
-  tags:
-    - timezone
