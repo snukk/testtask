@@ -3,14 +3,11 @@
   apt:
     name: chrony
     state: present
-  tags:
-    - chrony
 
 - name: Configure Chrony
-  ansible.builtin.template:
+  template:
     src: chrony.conf.j2
     dest: /etc/chrony.conf
   notify:
     - restart chronyd
-  tags:
-    - chrony
+
