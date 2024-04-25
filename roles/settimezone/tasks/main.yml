@@ -1,0 +1,6 @@
+---
+- import_tasks: configure.yml
+
+- import_tasks: settz.yml
+
+- import_tasks: disable_service.yml

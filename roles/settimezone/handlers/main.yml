@@ -4,3 +4,5 @@
   service:
     name: chronyd
     state: restarted
+    enabled: True
+    

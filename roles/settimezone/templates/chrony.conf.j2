@@ -1,0 +1,9 @@
+# {{ ansible_managed }}
+
+{% for item in chrony_ntp_servers %}
+{{ item }}
+{% endfor %}
+
+{% for item in chrony_config %}
+{{ item }}
+{% endfor %}

@@ -1,0 +1,17 @@
+
+- name: Get service facts
+  service_facts:
+
+- name: Disable ntp services
+  service:
+    name: "{{ item }}"
+    state: stopped
+    enabled: no
+  with_items:
+    - ntpd
+    - systemd-timedated
+    - timesyncd
+  ignore_errors: yes
+  when: 
+  - (item + '.service') in services
+  - services[ (item + '.service') ]['status'] == "enabled"
