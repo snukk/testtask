@@ -3,7 +3,7 @@
     path: "/etc/systemd/system/{{ item }}.service"
   register: serv_exist
   loop:
-    - ntp
+#    - ntp
     - ntpd
     - systemd-timedated
     - timesyncd
@@ -15,7 +15,7 @@
     state: stopped
     enabled: no
   loop:
-    - ntp
+#    - ntp
     - ntpd
     - systemd-timedated
     - timesyncd
